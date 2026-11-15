@@ -1,0 +1,12 @@
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: p1.asnden.xyz
+
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:8081:80"

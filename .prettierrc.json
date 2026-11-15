@@ -1,0 +1,23 @@
+{
+    "printWidth": 80,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": [
+                "*.css",
+                "*.html"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}

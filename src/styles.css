@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  margin: auto;
+  gap: 16px;
+  padding: 8px;
+  max-width: 800px;
+}
+
+h1,
+.desc {
+  text-align: center;
+}
+
+#timers-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.timer {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 16px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 4px gray;
+  padding: 16px;
+}
+
+.timer-name {
+  font-weight: bold;
+}
+
+.timer-timer {
+  font-size: 2em;
+}
+
+@media screen and (425px <= width) {
+  #timers-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
