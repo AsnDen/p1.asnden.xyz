@@ -62,7 +62,7 @@ function calculateTime(then: Date) {
     const mondays =
         1 +
         Math.floor(
-            (then.getTime() - now.getTime()) / (1000 * 60 * 60 * 24 * 7),
+            (weekStart.getTime() - now.getTime()) / (1000 * 60 * 60 * 24 * 7),
         );
 
     const beforeHours = 24 - now.getHours();
