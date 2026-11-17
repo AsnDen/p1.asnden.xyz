@@ -46,8 +46,17 @@ const timers = document.querySelectorAll(".timer");
 
 setInterval(() => updateTimers(timers), 1000);
 
+// See https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
+function mondayLocale(i: number) {
+    if (i % 10 === 1 && i % 100 !== 11) {
+        return "понедельник";
+    } else if ([2, 3, 4].includes(i % 10) && ![12, 13, 14].includes(i % 100)) {
+        return "понедельника";
+    }
+    return "понедельников";
+}
+
 // TODO(asnden): simplify
-// TODO(asnden): transform "понедельников" properly
 function calculateTime(then: Date) {
     const now = new Date();
     if (then <= now) {
@@ -89,7 +98,7 @@ function calculateTime(then: Date) {
     const minutesStr = `0${mimutes}`.slice(-2);
     const hoursStr = `0${hours}`.slice(-3);
 
-    return `${mondays} понедельников ${hoursStr}:${minutesStr}:${secondsStr}`;
+    return `${mondays} ${mondayLocale(mondays)} ${hoursStr}:${minutesStr}:${secondsStr}`;
 }
 
 function updateTimer(timerElement: Element) {
